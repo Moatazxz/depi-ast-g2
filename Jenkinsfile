@@ -7,7 +7,7 @@ stages {
       {
           steps{
            sh """
-                 echo "Buils node code"
+                 npm -v
             """
         
           }
