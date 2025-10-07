@@ -1,5 +1,5 @@
 pipeline {
-agent any
+ agent any
 
 stages {
 
@@ -33,7 +33,7 @@ stages {
           }
       }
 
-    stage ("build docker")
+    stage ("Deploy")
       {
           steps{
            sh """
