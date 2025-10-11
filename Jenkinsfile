@@ -5,7 +5,7 @@ pipeline {
  //   nodejs 'node24'
  // }
 
- enviroments {
+ environment {
   myrepo= "docker.io/moatazxz".
   appname= "myapp"
  }
