@@ -46,11 +46,15 @@ stages {
     stage ("Deploy")
       {
           steps{
+             sshagent(credentials: ['deploy-ssh-key']) {
            sh """
-                 echo "ssh to target server"
+                ssh ubuntu@172.31.23.41 '
+                   touch hello-from-jenkins
+                '
             """
         
           }
+      }
       }
 
 
