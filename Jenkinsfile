@@ -51,7 +51,7 @@ stages {
            sh """
                 ssh  -o StrictHostKeyChecking=no  ubuntu@54.211.192.109 '
                    docker login -u $DOCKER_USER  -p $DOCKER_PASS 
-                   docker run docker.io/moatazxz/myapp:v1
+                   docker run  -d docker.io/moatazxz/myapp:v1
                 '
             """
         
