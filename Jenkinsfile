@@ -51,6 +51,10 @@ stages {
 
     stage ("Deploy")
       {
+
+       when {
+          branch 'prod'        
+       }
           steps{
             withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
              sshagent(credentials: ['deploy-ssh-key']) {
