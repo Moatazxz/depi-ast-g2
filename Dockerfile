@@ -1,1 +1,1 @@
-FROM nginx
+FOM nginx
