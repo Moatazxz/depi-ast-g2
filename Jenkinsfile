@@ -42,7 +42,7 @@ stages {
            withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
            sh """
                  docker login -u $DOCKER_USER  -p $DOCKER_PASS
-                 docker push ${myrepo}${appname}:${env.BUILD_NUMBER}
+                 docker push ${myrepo}/${appname}:${env.BUILD_NUMBER}
             """
         
           }
