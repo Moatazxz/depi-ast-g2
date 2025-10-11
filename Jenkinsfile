@@ -6,7 +6,7 @@ pipeline {
  // }
 
  environment {
-  myrepo= "docker.io/moatazxz".
+  myrepo= "docker.io/moatazxz"
   appname= "myapp"
  }
 stages {
