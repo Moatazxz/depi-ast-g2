@@ -1,26 +1,26 @@
 pipeline {
  agent any
 
- tools {
-   nodejs 'node24'
- }
+ // tools {
+ //   nodejs 'node24'
+ // }
 stages {
 
-    stage ("build")
-      {
-          steps{
-           sh """
-                 npm -v
-            """
+    // stage ("build")
+    //   {
+    //       steps{
+    //        sh """
+    //              npm -v
+    //         """
         
-          }
-      }
+    //       }
+    //   }
 
-    stage ("test")
+    stage ("build docker")
       {
           steps{
            sh """
-                 echo "Test Code"
+                docker build -t docker.io/moatazxz/myapp:v1
             """
         
           }
