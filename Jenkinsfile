@@ -26,11 +26,11 @@ stages {
           }
       }
 
-    stage ("build2")
+    stage ("Push Image")
       {
           steps{
            sh """
-                 echo "build docker Image"
+                 docker push docker.io/moatazxz/myapp:v1
             """
         
           }
