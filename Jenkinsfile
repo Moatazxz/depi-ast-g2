@@ -48,7 +48,7 @@ stages {
           steps{
              sshagent(credentials: ['deploy-ssh-key']) {
            sh """
-                ssh ubuntu@54.211.192.109 '
+                ssh  -o StrictHostKeyChecking=no  ubuntu@54.211.192.109 '
                    touch hello-from-jenkins
                 '
             """
