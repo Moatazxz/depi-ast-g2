@@ -20,6 +20,7 @@ stages {
       {
           steps{
            sh """
+                docker login -u moatazxz   -p 
                 docker build -t docker.io/moatazxz/myapp:v1  .
             """
         
