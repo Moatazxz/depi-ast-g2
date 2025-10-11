@@ -46,14 +46,17 @@ stages {
     stage ("Deploy")
       {
           steps{
+            withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
              sshagent(credentials: ['deploy-ssh-key']) {
            sh """
                 ssh  -o StrictHostKeyChecking=no  ubuntu@54.211.192.109 '
-                   touch hello-from-jenkins
+                   docker login -u $DOCKER_USER  -p $DOCKER_PASS 
+                   docker run docker.io/moatazxz/myapp:v1
                 '
             """
         
           }
+      }
       }
       }
 
