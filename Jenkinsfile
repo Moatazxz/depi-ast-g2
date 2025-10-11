@@ -8,6 +8,7 @@ pipeline {
  environment {
   myrepo= "docker.io/moatazxz"
   appname= "myapp"
+  env= "test"
  }
 stages {
 
@@ -23,7 +24,17 @@ stages {
 
     stage ("build docker")
       {
+        when {
+         // anyof{
+         //  branch 'main'
+         //  environment name: 'env', value: 'test'
+         // }
 
+           allof{
+          branch 'main'
+          environment name: 'env', value: 'test'
+         }
+        }
            
           steps {
            sh """
@@ -38,6 +49,11 @@ stages {
 
     stage ("Push Image")
       {
+
+           when {
+           environment name: 'env', value: 'test'
+        }
+           
           steps{
            withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
            sh """
